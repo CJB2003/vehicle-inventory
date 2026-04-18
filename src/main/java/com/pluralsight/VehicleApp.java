@@ -64,11 +64,17 @@ public class VehicleApp {
     //method that displays AVAILABLE vehicles in inventory
     public static void listAllVehicles(Vehicle[] vehicles, int vehicleCounter) {
 
-        System.out.println("Here are the vehicles listed below.");
+        System.out.println("Here are the vehicles listed below.\n");
         for (int i = 0; i < vehicleCounter; i++) {
 
-            System.out.println(vehicles[i] + "\n");
+            System.out.println(
+                    vehicles[i].getVehicleID() + " | " +
+                    vehicles[i].getMakeModel() + " | " +
+                    vehicles[i].getColor() + " | " +
+                    vehicles[i].getOdometerReading() + " miles | $" +
+                    vehicles[i].getPrice());
         }
+        System.out.println("\n");
     }
 
     public static void findVehiclesByPrice() {
