@@ -56,7 +56,7 @@ public class VehicleApp {
                     findVehiclesByPrice(vehicleCounter);
                     break;
                 case 4:
-                    findVehiclesByMile();
+                    findVehiclesByMile(vehicleCounter);
                     break;
                 case 5:
                     addAVehicle(vehicleCounter);
