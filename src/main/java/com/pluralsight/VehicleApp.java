@@ -50,7 +50,13 @@ public class VehicleApp {
                     listAllVehicles(vehicles, vehicleCounter);
                     break;
                 case 2:
-                    findVehiclesByPrice();
+                    findVehiclesByMake();
+                    break;
+                case 3:
+                    findVehiclesByPrice(vehicleCounter);
+                    break;
+                case 4:
+                    findVehiclesByMile();
                     break;
                 case 5:
                     addAVehicle(vehicleCounter);
@@ -75,10 +81,65 @@ public class VehicleApp {
                     vehicles[i].getPrice());
         }
     }
-
-    public static void findVehiclesByPrice() {
+    //method searches for vehicles by price
+    public static void findVehiclesByMake() {
 
     }
+    //method searches for vehicles by Price
+    public static void findVehiclesByPrice(int vehicleCounter) {
+        //asks user to enter a min price
+        System.out.print("Enter a minimum price: ");
+        double userMin = myScanner.nextDouble();
+
+        //asks user to enter a max price
+        System.out.println("Enter a maximum price: ");
+        double userMax = myScanner.nextDouble();
+        myScanner.nextLine();
+
+        //iterates through vehicle array
+        for (int i = 0; i < vehicleCounter; i++) {
+            //gets the price of the vehicle by index
+            double price = vehicles[i].getPrice();
+
+            //price of vehicle has to be greater or equal to user min AND less than or equal to user max
+            if(price >= userMin && price <= userMax) {
+                System.out.println("The vehicle(s) in your price range: " + vehicles[i]);
+                break;
+            }
+            else {
+                System.out.println("No vehicle could be found within range. Try again.");
+            }
+        }
+
+    }
+
+    //method searches for vehicles by mileage, contains the same logic as search for vehicles by price but for miles
+    public static void findVehiclesByMile(int vehicleCounter) {
+        //asks user to enter a minimum mileage
+        System.out.print("Enter the minimum mileage: ");
+        int minMiles = myScanner.nextInt();
+
+        //asks user to enter a maximum mileage
+        System.out.println("Enter the maximum mileage: ");
+        int maxMiles = myScanner.nextInt();
+        myScanner.nextLine();
+
+        //iterates through vehicle array
+        for (int i = 0; i < vehicleCounter; i++) {
+            //gets the price of the vehicle by index
+            int mileage = vehicles[i].getOdometerReading();
+
+            //mile of vehicle has to be greater or equal to user min AND less than or equal to user max
+            if(mileage >= minMiles && mileage <= maxMiles) {
+                System.out.println("The vehicle(s) in your mileage range: " + vehicles[i]);
+                break;
+            }
+            else {
+                System.out.println("No vehicle could be found within range. Try again.");
+            }
+        }
+    }
+
     //method for adding a new vehicle
     public static int addAVehicle(int vehicleCounter) {
         System.out.println("Lets add a vehicle!");
@@ -103,6 +164,7 @@ public class VehicleApp {
 
                 //vehicle array taking in properties of a vehicle
                 vehicles[vehicleCounter] = new Vehicle(vehicleID, vehicleMake, vehicleColor, vehicleMiles, vehiclePrice);
+                //The if statement kept repeating, so I needed to add a break so it adds only once.
                 break;
             }
         }
