@@ -96,6 +96,9 @@ public class VehicleApp {
         double userMax = myScanner.nextDouble();
         myScanner.nextLine();
 
+        //creating bool variable to check if found is true or false
+        boolean found = false;
+
         //iterates through vehicle array
         for (int i = 0; i < vehicleCounter; i++) {
             //gets the price of the vehicle by index
@@ -104,6 +107,7 @@ public class VehicleApp {
             //price of vehicle has to be greater or equal to user min AND less than or equal to user max
             if(price >= userMin && price <= userMax) {
                 //prints out the vehicles within price range
+                found = true;
                 System.out.println("The vehicle(s) in your price range: " +
                         vehicles[i].getVehicleID() + " | " +
                         vehicles[i].getMakeModel() + " | " +
@@ -111,9 +115,9 @@ public class VehicleApp {
                         vehicles[i].getOdometerReading() + " miles | $" +
                         vehicles[i].getPrice());
             }
-            else {
-                System.out.println("No vehicle could be found within price range. Try again.");
-            }
+        }
+        if (!found) {
+            System.out.println("No vehicle could be found within price range. Try again.");
         }
 
     }
@@ -129,6 +133,8 @@ public class VehicleApp {
         int maxMiles = myScanner.nextInt();
         myScanner.nextLine();
 
+        boolean found = false;
+
         //iterates through vehicle array
         for (int i = 0; i < vehicleCounter; i++) {
             //gets the price of the vehicle by index
@@ -137,6 +143,7 @@ public class VehicleApp {
             //mile of vehicle has to be greater or equal to user min AND less than or equal to user max
             if(mileage >= minMiles && mileage <= maxMiles) {
                 //prints out vehicles within mileage range
+                found = true;
                 System.out.println("The vehicle(s) in your mileage range: " +
                         vehicles[i].getVehicleID() + " | " +
                         vehicles[i].getMakeModel() + " | " +
@@ -144,9 +151,9 @@ public class VehicleApp {
                         vehicles[i].getOdometerReading() + " miles | $" +
                         vehicles[i].getPrice());
             }
-            else {
-                System.out.println("No vehicle could be found within mileage range. Try again.");
-            }
+        }
+        if (!found) {
+            System.out.println("No vehicle could be found within mileage range. Try again.");
         }
     }
 
