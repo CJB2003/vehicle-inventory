@@ -99,9 +99,11 @@ public class VehicleApp {
                 int vehicleMiles = myScanner.nextInt();
                 System.out.print("Enter vehicle price: ");
                 double vehiclePrice = myScanner.nextDouble();
+                myScanner.nextLine();
 
                 //vehicle array taking in properties of a vehicle
                 vehicles[vehicleCounter] = new Vehicle(vehicleID, vehicleMake, vehicleColor, vehicleMiles, vehiclePrice);
+                break;
             }
         }
         //vehicle counter goes up by one each time you add a vehicle
