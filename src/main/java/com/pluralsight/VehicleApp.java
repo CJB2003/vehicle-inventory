@@ -41,7 +41,7 @@ public class VehicleApp {
             System.out.println(" 4 - Search by color");
             System.out.println(" 5 - Add a vehicle");
             System.out.println(" 6 - Quit");
-            System.out.println("Enter your command: ");
+            System.out.print("Enter your command: ");
             int command = myScanner.nextInt();
             myScanner.nextLine();
 
@@ -92,7 +92,7 @@ public class VehicleApp {
         double userMin = myScanner.nextDouble();
 
         //asks user to enter a max price
-        System.out.println("Enter a maximum price: ");
+        System.out.print("Enter a maximum price: ");
         double userMax = myScanner.nextDouble();
         myScanner.nextLine();
 
@@ -103,12 +103,16 @@ public class VehicleApp {
 
             //price of vehicle has to be greater or equal to user min AND less than or equal to user max
             if(price >= userMin && price <= userMax) {
-                System.out.println("The vehicle(s) in your price range: " + vehicles[i]);
-                break;
+                //prints out the vehicles within price range
+                System.out.println("The vehicle(s) in your price range: " +
+                        vehicles[i].getVehicleID() + " | " +
+                        vehicles[i].getMakeModel() + " | " +
+                        vehicles[i].getColor() + " | " +
+                        vehicles[i].getOdometerReading() + " miles | $" +
+                        vehicles[i].getPrice());
             }
             else {
                 System.out.println("No vehicle could be found within price range. Try again.");
-                break;
             }
         }
 
@@ -121,7 +125,7 @@ public class VehicleApp {
         int minMiles = myScanner.nextInt();
 
         //asks user to enter a maximum mileage
-        System.out.println("Enter the maximum mileage: ");
+        System.out.print("Enter the maximum mileage: ");
         int maxMiles = myScanner.nextInt();
         myScanner.nextLine();
 
@@ -132,12 +136,16 @@ public class VehicleApp {
 
             //mile of vehicle has to be greater or equal to user min AND less than or equal to user max
             if(mileage >= minMiles && mileage <= maxMiles) {
-                System.out.println("The vehicle(s) in your mileage range: " + vehicles[i]);
-                break;
+                //prints out vehicles within mileage range
+                System.out.println("The vehicle(s) in your mileage range: " +
+                        vehicles[i].getVehicleID() + " | " +
+                        vehicles[i].getMakeModel() + " | " +
+                        vehicles[i].getColor() + " | " +
+                        vehicles[i].getOdometerReading() + " miles | $" +
+                        vehicles[i].getPrice());
             }
             else {
                 System.out.println("No vehicle could be found within mileage range. Try again.");
-                break;
             }
         }
     }
