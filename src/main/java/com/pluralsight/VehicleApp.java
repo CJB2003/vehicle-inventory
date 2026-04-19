@@ -88,7 +88,7 @@ public class VehicleApp {
     //method searches for vehicles by Price
     public static void findVehiclesByPrice(int vehicleCounter) {
         //asks user to enter a min price
-        System.out.print("Enter a minimum price: ");
+        System.out.print("\nEnter a minimum price: ");
         double userMin = myScanner.nextDouble();
 
         //asks user to enter a max price
@@ -144,7 +144,7 @@ public class VehicleApp {
             if(mileage >= minMiles && mileage <= maxMiles) {
                 //prints out vehicles within mileage range
                 found = true;
-                System.out.println("The vehicle(s) in your mileage range: " +
+                System.out.println("\nThe vehicle(s) in your mileage range: " +
                         vehicles[i].getVehicleID() + " | " +
                         vehicles[i].getMakeModel() + " | " +
                         vehicles[i].getColor() + " | " +
