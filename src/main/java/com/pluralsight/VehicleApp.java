@@ -107,7 +107,8 @@ public class VehicleApp {
                 break;
             }
             else {
-                System.out.println("No vehicle could be found within range. Try again.");
+                System.out.println("No vehicle could be found within price range. Try again.");
+                break;
             }
         }
 
@@ -135,7 +136,8 @@ public class VehicleApp {
                 break;
             }
             else {
-                System.out.println("No vehicle could be found within range. Try again.");
+                System.out.println("No vehicle could be found within mileage range. Try again.");
+                break;
             }
         }
     }
