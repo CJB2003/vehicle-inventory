@@ -10,6 +10,7 @@ public class Vehicle {
     private double price;
 
     //generated constructor for object
+
     public Vehicle(long vehicleID, String makeModel, String color, int odometerReading, double price) {
         this.vehicleID = vehicleID;
         this.makeModel = makeModel;

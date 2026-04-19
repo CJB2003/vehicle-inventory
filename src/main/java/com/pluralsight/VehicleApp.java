@@ -30,11 +30,11 @@ public class VehicleApp {
             }
         }
         //Prints out the amount of vehicles we have in inventory
-        System.out.println("We have " + vehicleCounter + " vehicles in our inventory.\n");
+        System.out.println("We have " + vehicleCounter + " vehicles in our inventory.");
 
         //
         while (true) {
-            System.out.println("What do you want to do?");
+            System.out.println("\nWhat do you want to do?");
             System.out.println(" 1 - List all vehicles");
             System.out.println(" 2 - Search by make/model");
             System.out.println(" 3 - Search by price range");
@@ -53,7 +53,7 @@ public class VehicleApp {
                     findVehiclesByPrice();
                     break;
                 case 5:
-                    addAVehicle();
+                    addAVehicle(vehicleCounter);
                     break;
                 case 6:
                     System.exit(0);
@@ -74,14 +74,37 @@ public class VehicleApp {
                     vehicles[i].getOdometerReading() + " miles | $" +
                     vehicles[i].getPrice());
         }
-        System.out.println("\n");
     }
 
     public static void findVehiclesByPrice() {
 
     }
+    //method for adding a new vehicle
+    public static int addAVehicle(int vehicleCounter) {
+        System.out.println("Lets add a vehicle!");
+        for(int i = 0; i < vehicles.length; i++) {
 
-    public static void addAVehicle() {
+            //if the index in vehicle array is empty, then it takes in user input for ID, Make/Model, color, mileage, and price.
+            //Then inputs those values into vehicle object
+            if (vehicles[i] == null) {
 
+                System.out.print("Enter vehicle ID: ");
+                long vehicleID = myScanner.nextInt();
+                myScanner.nextLine();
+                System.out.print("Enter vehicle make/model: ");
+                String vehicleMake = myScanner.nextLine();
+                System.out.print("Enter vehicle color: ");
+                String vehicleColor = myScanner.nextLine();
+                System.out.print("Enter mileage: ");
+                int vehicleMiles = myScanner.nextInt();
+                System.out.print("Enter vehicle price: ");
+                double vehiclePrice = myScanner.nextDouble();
+
+                //vehicle array taking in properties of a vehicle
+                vehicles[vehicleCounter] = new Vehicle(vehicleID, vehicleMake, vehicleColor, vehicleMiles, vehiclePrice);
+            }
+        }
+        //vehicle counter goes up by one each time you add a vehicle
+        return vehicleCounter + 1;
     }
 }
