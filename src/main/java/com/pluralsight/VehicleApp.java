@@ -83,6 +83,30 @@ public class VehicleApp {
     }
     //method searches for vehicles by price
     public static void findVehiclesByMake() {
+        //prompting user to enter what car they're searching for by make and model
+        System.out.println("What make and model are you searching for? ");
+        String userSearch = myScanner.nextLine();
+
+        //bool variable, default
+        boolean found = false;
+
+        //iterates through vehicle array, if
+        for (int i = 0; i < vehicles.length; i++) {
+            if (vehicles[i] == null) {
+                break;
+            }
+            //if vehicle make/model at the index of vehicle array == the user input then it prints out the vehicle
+            //ignoring case sensitivity
+            if (vehicles[i].getMakeModel().equalsIgnoreCase(userSearch)) {
+                System.out.println(vehicles[i].getMakeModel() + " is available for sale.");
+                found = true;
+            }
+        }
+        //if false, its prints no vehicles were found with that specific make and model
+        if (!found) {
+            System.out.println("No vehicles were found with that make and model.");
+        }
+
 
     }
     //method searches for vehicles by Price
